@@ -3,37 +3,44 @@
 Example base for typescript projects
 
 ## Table of contents
-* [First steps](#first-steps)
-  + [Installing node](#installing-node)
-  + [Install dependencies](#install-dependencies)
-  + [Starting your app](#starting-your-app)
-* [Development](#development)
-  + [Environments](#environments)
-  + [Documentation](#documentation)
-* [Contributing](#contributing)
-* [License](#license)
+
+- [First steps](#first-steps)
+  - [Installing node](#installing-node)
+  - [Install dependencies](#install-dependencies)
+  - [Starting your app](#starting-your-app)
+- [Development](#development)
+  - [Environments](#environments)
+  - [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## First steps
 
 ### Installing node
+
 Get the latest version of node from the [official website](https://nodejs.org/) or using [nvm](https://github.com/creationix/nvm)
 Nvm approach is preferred.
 
 ### Install dependencies
+
 Run `npm install` or `yarn` from rootpath of the project.
 
 ### Starting your app
+
 Now, to start your app run `npm start` in the rootpath of the project. Then access your app at **localhost:port**, where the port was logged into the console at startup.
 
 ## Development
 
 ### Environments
+
 By default, the environment will be **development**, but you can change it easily using the **NODE_ENV** environmental variable.
 
 #### Environment variables
+
 `Dotenv` is used for managing environment variables. They are stored in the `/.env` file. Take into account that the variables defined in the `bashrc` are not overrided.
 
 The environment variables should be added to the `.env` file in the form of `NAME=VALUE`, as the following example:
+
 ```
 PORT=3000
 DB_HOST=localhost
@@ -53,6 +60,7 @@ testing database each time you have new ones, you can do this by running the com
 Once you have all the above done you can run your tests with the following command: `npm test`. For more information refeer to the documentation of [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/).
 
 ### Documentation
+
 Documentation will be served at `/docs`. Remember using [dictum.js](http://www.github.com/Wolox/dictum.js) package to automatically generate documentation for your endpoints. Check [this link](https://github.com/Wolox/dictum.js#chai) for further details.
 
 ## Contributing

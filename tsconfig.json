@@ -2,16 +2,16 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDir": "./src",
+    "rootDir": ".",
     "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
+    "lib": ["es2024", "ESNext.Array", "ESNext.Collection", "ESNext.Iterator"],
+    "module": "nodenext",
     "target": "es2022",
-    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["jest", "node"],
-    "lib": ["ES2022"],
 
     // Other Outputs
     "sourceMap": true,
@@ -33,8 +33,8 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "isolatedModules": true,
+    "isolatedModules": true
   },
-  "include": ["src/**/*.ts", "tests/**/*.test.ts"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*.ts", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

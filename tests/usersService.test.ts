@@ -1,15 +1,16 @@
-import { User } from '../entities/User';
+import { User } from '../src/entities/User';
+
 import { createMockRepository } from './__mocks__/repository';
 
 const mockUserRepository = createMockRepository<User>();
 
-jest.mock('../data-source', () => ({
+jest.mock('../src/data-source', () => ({
   AppDataSource: {
     getRepository: jest.fn().mockReturnValue(mockUserRepository),
   },
 }));
 
-import * as userService from '../services/users';
+import * as userService from '../src/services/users';
 
 describe('User Service (mock typeorm)', () => {
   beforeEach(() => {

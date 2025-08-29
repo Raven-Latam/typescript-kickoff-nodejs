@@ -1,7 +1,6 @@
 import { inspect } from 'node:util';
 
 import { NextFunction, Response, Request } from 'express';
-
 import status from 'http-status';
 
 const DEFAULT_STATUS_CODE = status.INTERNAL_SERVER_ERROR;
@@ -15,7 +14,9 @@ export interface InternalError {
 export const createInternalError =
   (internalCode: string, statusCode: number) =>
   (message: string, err?: Error): InternalError => {
-    err && console.error(inspect(err));
+    if (err) {
+      console.error(inspect(err));
+    }
     return { message, internalCode, statusCode };
   };
 export function errorHandlerMiddleware(

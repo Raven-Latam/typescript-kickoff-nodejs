@@ -1,9 +1,10 @@
 import axios from 'axios';
+
 import config from '../config/config';
 
 const client = axios.create({
   baseURL: config.todosApi.baseURL,
-  responseType: 'json'
+  responseType: 'json',
 });
 
 export interface Todo {

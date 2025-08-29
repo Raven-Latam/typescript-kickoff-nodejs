@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from 'express';
-
-import * as userService from '../services/users';
 import status from 'http-status';
+
 import { User } from '../entities/User';
 import { notFoundError } from '../errors';
+import * as userService from '../services/users';
 
 export function getUsers(
   req: Request,
@@ -22,7 +22,7 @@ export function createUser(
   next: NextFunction,
 ): Promise<Response | void> {
   return userService
-    .createAndSave(req.body)
+    .createAndSave(req.body as User)
     .then((user: User) => res.status(status.CREATED).send({ user }))
     .catch(next);
 }

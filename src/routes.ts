@@ -1,8 +1,8 @@
 import { Application } from 'express';
 
 import { healthCheck } from './controllers/healthCheck';
-import { getUsers, getUserById, createUser } from './controllers/users';
 import { getTodos } from './controllers/todos';
+import { getUsers, getUserById, createUser } from './controllers/users';
 
 export const init = (app: Application): void => {
   app.get('/health', healthCheck);
