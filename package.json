@@ -15,7 +15,18 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "npm run build && node dist/src/server.js"
+    "build:prod": "tsc --project tsconfig.prod.json",
+    "start": "npm run build:prod && node dist/src/server.js",
+    "start:prod": "npm run build:prod && node dist/src/server.js",
+    "docker:build": "docker build -t typescript-kickoff .",
+    "docker:run": "docker run -p 3000:3000 typescript-kickoff",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:dev": "docker-compose up",
+    "docker:dev:build": "docker-compose up --build",
+    "docker:dev:down": "docker-compose down",
+    "docker:dev:restart": "docker-compose restart app"
   },
   "repository": {
     "type": "git",
