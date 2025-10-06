@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: typescript-kickoff-postgres
+    environment:
+      POSTGRES_DB: mydb
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: typescript-kickoff-app
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USERNAME: username
+      DB_PASSWORD: password
+      DB_NAME: mydb
+      TODOS_API_BASE_URL: https://jsonplaceholder.typicode.com
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run dev
+
+volumes:
+  postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

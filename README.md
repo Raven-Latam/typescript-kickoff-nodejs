@@ -42,12 +42,21 @@ By default, the environment will be **development**, but you can change it easil
 The environment variables should be added to the `.env` file in the form of `NAME=VALUE`, as the following example:
 
 ```
+# Application environment
+NODE_ENV=development
+
+# API configuration
 PORT=3000
+
+# Database configuration
 DB_HOST=localhost
 DB_PORT=5432
-DB_USERNAME=myuser
-DB_PASSWORD=mypassword
+DB_USERNAME=username
+DB_PASSWORD=password
 DB_NAME=mydb
+
+# External API for todos
+TODOS_API_BASE_URL=https://jsonplaceholder.typicode.com
 ```
 
 **Remember not to push nor commit the `.env` file.**
